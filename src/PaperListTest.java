@@ -6,7 +6,7 @@ public class PaperListTest {
 
     @Test
     public void testSelectPaperByRandom_Normal() throws Exception {
-        PaperList paperList = new PaperList(new RandomStrategy());
+        PaperList paperList = new PaperList((SelectionStrategy) new RandomStrategy());
         paperList.addPaper(new JournalPaper("A"));
         paperList.addPaper(new JournalPaper("B"));
         paperList.addPaper(new JournalPaper("C"));
@@ -18,7 +18,7 @@ public class PaperListTest {
 
     @Test
     public void testSelectPaper_NotEnough() {
-        PaperList paperList = new PaperList(new RandomStrategy());
+        PaperList paperList = new PaperList((SelectionStrategy) new RandomStrategy());
         paperList.addPaper(new ConferencePaper("C1"));
 
         Student student = new Student("Cloudy", new Preference("ConferencePaper", 3));
@@ -29,7 +29,7 @@ public class PaperListTest {
 
     @Test
     public void testSelectPaper_IllegalQuantity() {
-        PaperList paperList = new PaperList(new RandomStrategy());
+        PaperList paperList = new PaperList((SelectionStrategy) new RandomStrategy());
         paperList.addPaper(new Thesis("T1"));
 
         Student student = new Student("Cloudy", new Preference("Thesis", 0));

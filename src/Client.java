@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Client {
     public static void main(String[] args) {
-        PaperList list = new PaperList(new RandomStrategy());
+        PaperList list = new PaperList((SelectionStrategy) new RandomStrategy());
         list.addPaper(new JournalPaper("AI"));
         list.addPaper(new JournalPaper("Cloud"));
         list.addPaper(new ConferencePaper("Security"));
